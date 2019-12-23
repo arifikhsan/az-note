@@ -1,12 +1,13 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Notes</h1>
+<h1>Catatan kegiatan</h1>
 
 <table>
   <thead>
     <tr>
-      <th>Title</th>
-      <th>Done</th>
+      <th>Nama</th>
+      <th>Sudah dilakukan?</th>
+      <th>Dibuat pada</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -15,7 +16,8 @@
     <% @notes.each do |note| %>
       <tr>
         <td><%= note.title %></td>
-        <td><%= note.done %></td>
+        <td><%= note.done ? 'sudah' : 'belum' %></td>
+        <td><%= note.created_at.to_formatted_s(:short) %></td>
         <td><%= link_to 'Show', note %></td>
         <td><%= link_to 'Edit', edit_note_path(note) %></td>
         <td><%= link_to 'Destroy', note, method: :delete, data: { confirm: 'Are you sure?' } %></td>
